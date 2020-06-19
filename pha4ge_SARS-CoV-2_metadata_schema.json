@@ -49,7 +49,7 @@
 	    "type": "string",
 	    "examples": [
 	    ]
-	}
+	},
 	"specimen_collected_by": {
 	    "description": "The name of the agency that collected the original sample.",
 	    "type": "string",
