@@ -12,6 +12,13 @@ def parse_properties_table(path_to_properties_table):
         "Float": "number",
     }
 
+    format_map = {
+        "String": None,
+        "Date": "date",
+        "Int": None,
+        "Float": None,
+    }
+
     properties = {}
 
     with open(path_to_properties_table) as f:
@@ -22,6 +29,9 @@ def parse_properties_table(path_to_properties_table):
             properties[property_key]['description'] = row['Definition']
             type = datatype_map[row['Value Type']]
             properties[property_key]['type'] = type
+            format = format_map[row['Value Type']]
+            if format:
+                properties[property_key]['format'] = format
             properties[property_key]['examples'] = [row['Example']]
 
     return properties
