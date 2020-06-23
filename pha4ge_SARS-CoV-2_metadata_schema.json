@@ -109,14 +109,14 @@
                 "2020-03-20"
             ]
         },
-        "geo_loc_name_(country)": {
+        "geo_loc_name_country": {
             "description": "Country of origin of the sample.",
             "type": "string",
             "examples": [
                 "South Africa"
             ]
         },
-        "geo_loc_name_(state/province/region)": {
+        "geo_loc_name_state_province_region": {
             "description": "State/province/region of origin of the sample.",
             "type": "string",
             "examples": [
@@ -235,14 +235,14 @@
                 "RNA (total)"
             ]
         },
-        "host_(common_name)": {
+        "host_common_name": {
             "description": "The commonly used name of the host.",
             "type": "string",
             "examples": [
                 "Human"
             ]
         },
-        "host_(scientific_name)": {
+        "host_scientific_name": {
             "description": "The taxonomic, or scientific name of the host.",
             "type": "string",
             "examples": [
@@ -284,7 +284,7 @@
                 "Male"
             ]
         },
-        "host_origin_geo_loc_(country)": {
+        "host_origin_geo_loc_country": {
             "description": "The country of residence of the host.",
             "type": "string",
             "examples": [
@@ -313,7 +313,7 @@
                 "Cough, Fever, Chills"
             ]
         },
-        "location_of_exposure_geo_loc_name_(country)": {
+        "location_of_exposure_geo_loc_name_country": {
             "description": "The country where the host was likely exposed to the causative agent of the illness.",
             "type": "string",
             "examples": [
@@ -383,7 +383,7 @@
                 "Porechop v. 0.2.3"
             ]
         },
-        "sequencing_depth_(average)": {
+        "sequencing_depth_average": {
             "description": "The total number of sequenced base pairs divided by the expected number of base pairs in the genome.",
             "type": "number",
             "examples": [
@@ -578,11 +578,11 @@
         "sample_collected_by",
         "sequence_submitted_by",
         "sample_collection_date",
-        "geo_loc_name_(country)",
-        "geo_loc_name_(state/province/region)",
+        "geo_loc_name_country",
+        "geo_loc_name_state_province_region",
         "organism",
         "isolate",
-        "host_(scientific_name)",
+        "host_scientific_name",
         "host_disease"
     ]
 }
