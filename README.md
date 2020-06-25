@@ -20,7 +20,7 @@ The The Data Specification Processing Tool is a simple Python script that automa
 #### Input
 Currently, the Data Specification Processing Tool takes as input PHA4GE's ["Spec List (Standardized Terms)" tabular](https://docs.google.com/spreadsheets/d/17PuBcA0cCT-j9hV5tbwMFKtwWwKE-a_MYRqOOsIxj7c/edit?usp=sharing). This table lists the terms for SARS-CoV-2 submission template according to the PHA4GE contextual data collection specification and it's structure is described in Table 1. 
 
-*Table 1*
+**Table 1** Field description of the "Spec List (Standardized Terms)" tabular.  
 | Column 	| Description 	|
 |:-:	|:-:	|
 | Interface Label 	| Column headers in the submission template 	|
