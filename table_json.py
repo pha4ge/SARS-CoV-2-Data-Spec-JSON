@@ -18,6 +18,7 @@ def parse_properties_table(path_to_properties_table):
         "Date": "string",
         "Int": "integer",
         "Float": "number",
+        "Email": "string"
     }
 
     format_map = {
@@ -25,6 +26,7 @@ def parse_properties_table(path_to_properties_table):
         "Date": "date",
         "Int": None,
         "Float": None,
+        "Email": "email"
     }
 
     properties = {}
