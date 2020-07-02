@@ -147,8 +147,8 @@
             "description": "Identifier of the specific isolate.",
             "type": "string",
             "examples": [
-                "INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020",
-                "GISAID: hCoV-19/USA-CDPH-001/2020"
+                "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
+                "hCoV-19/USA-CDPH-001/2020"
             ]
         },
         "purpose_of_sampling": {
