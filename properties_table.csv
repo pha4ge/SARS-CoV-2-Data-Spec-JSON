@@ -19,7 +19,7 @@ sample received date,Optional,The date on which the sample was received.,Date,20
 geo_loc name (country),Required,Country of origin of the sample.,String,South Africa,Provide the country name from the picklist in the template
 geo_loc name (state/province/region),Required,State/province/region of origin of the sample.,String,Western Cape,Provide the state/province/region name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz
 organism,Required,Taxonomic name of the organism.,String,Severe acute respiratory coronavirus 2,Use Severe acute respiratory coronavirus 2.
-isolate,Required,Identifier of the specific isolate.,String,INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020; GISAID: hCoV-19/USA-CDPH-001/2020,"Chose one of the following naming conventions for SARC-CoV-2 samples:
+isolate,Required,Identifier of the specific isolate.,String,SARS-CoV-2/human/USA/CA-CDPH-001/2020;hCoV-19/USA-CDPH-001/2020,"Chose one of the following naming conventions for SARC-CoV-2 samples:
 1) ICTV compliant name for INSDC submission: ""SARS-CoV-2/host/location/isolate/date""
 2) GISAID naming convention: ""hCoV-19/location/isolate/date"""
 purpose of sampling,Recommended,The reason that the sample was collected.,String,Diagnostic testing,Select a value from the picklist in the template.
