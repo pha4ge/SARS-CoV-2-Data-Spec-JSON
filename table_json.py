@@ -5,6 +5,7 @@ import csv
 import json
 import re
 
+
 def interface_label_to_property_key(interface_label):
     property_key = re.sub(r'[^\w {}]', '_', interface_label).replace(' ', '_').replace('__', '_').lower()
     property_key = re.sub(r'_$', '', property_key)
@@ -42,7 +43,7 @@ def parse_properties_table(path_to_properties_table):
             format = format_map[row['Value Type']]
             if format:
                 properties[property_key]['format'] = format
-            properties[property_key]['examples'] = [row['Example']]
+            properties[property_key]['examples'] = row['Example'].split(';')  # examples separated by semicolon
 
     return properties
 

@@ -5,23 +5,21 @@ biosample accession,Recommended,The identifier assigned to a BioSample in INSDC 
 SRA accession ,Optional,"The Sequence Read Archive (SRA) identifier linking raw read data, methodological metadata and quality control metrics submitted to the INSDC.",String,SRR11177792,"Store the accession assigned to the submitted ""run"". NCBI-SRA accessions start with SRR, while EBI-ENA runs start with ENA. "
 GenBank accession,Optional,The GenBank identifier assigned to the sequence in the INSDC archives.,String,MN908947.3,Store the accession returned from a GenBank submission (viral genome assembly).
 GISAID accession,Optional,The GISAID accession number assigned to the sequence.,String,EPI_ISL_123456,Store the accession returned from the GISAID submission. 
-specimen collector sample ID,Required,The user-defined name for the sample. ,String,"1) INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020
-2) GISAID: hCoV-19/USA-CDPH-001/2020","Chose one of the following naming conventions for SARC-CoV-2 samples:
+specimen collector sample ID,Required,The user-defined name for the sample. ,String,INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020; GISAID: hCoV-19/USA-CDPH-001/2020,"Chose one of the following naming conventions for SARC-CoV-2 samples:
 1) ICTV compliant name for INSDC submission: ""SARS-CoV-2/host/location/isolate/date""
 2) GISAID naming convention: ""hCoV-19/location/isolate/date"""
-sample collected by,Required,The name of the agency that collected the original sample.,String,"Public Health Agency of Canada, Centers for Disease Control and Prevention","The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
-sample collector contact email,Optional,The email address of the contact responsible for follow-up regarding the sample.,Email,johnnyblogs@lab.ca or RespLab@lab.ca,The email address can represent a specific individual or lab.
+sample collected by,Required,The name of the agency that collected the original sample.,String,Public Health Agency of Canada; Centers for Disease Control and Prevention,"The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
+sample collector contact email,Optional,The email address of the contact responsible for follow-up regarding the sample.,Email,johnnyblogs@lab.ca; RespLab@lab.ca,The email address can represent a specific individual or lab.
 sample collector contact address,Optional,The mailing address of the agency submitting the sample.,String,"655 Lab St, Vancouver, British Columbia, V5N 2A2, Canada","The mailing address should be in the format: Street number and name, City, State/Province/Region, Country, Postal Code/Zip Code"
-sequence submitted by,Required,The name of the agency that generated the sequence.,String,"Public Health Agency of Canada, Centers for Disease Control and Prevention","The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
-sequence submitter contact email,Optional,The email address of the contact responsible for follow-up regarding the sequence.,Email,johnnyblogs@lab.ca or RespLab@lab.ca,The email address can represent a specific individual or lab.
+sequence submitted by,Required,The name of the agency that generated the sequence.,String,Public Health Agency of Canada; Centers for Disease Control and Prevention,"The name of the agency should be written out in full, (with minor exceptions) and be consistent across multiple submissions."
+sequence submitter contact email,Optional,The email address of the contact responsible for follow-up regarding the sequence.,Email,johnnyblogs@lab.ca; RespLab@lab.ca,The email address can represent a specific individual or lab.
 sequence submitter contact address,Optional,The mailing address of the agency submitting the sequence.,String,"123 Sunnybrooke St, Toronto, Ontario, M4P 1L6, Canada","The mailing address should be in the format: Street number and name, City, State/Province/Region, Country, Postal Code/Zip Code"
 sample collection date,Required,The date on which the sample was collected.,Date,2020-03-16,"Sample collection date is critical for surveillance and many types of analyses. Required granularity includes year, month and day. If this date is considered identifiable information, it is acceptable to add ""jitter"" by adding or subtracting a calendar day (acceptable by GISAID). Alternatively, ”received date” may be used as a substitute. The date should be provided in ISO 8601 standard format ""YYYY-MM-DD""."
 sample received date,Optional,The date on which the sample was received.,Date,2020-03-20,"ISO 8601 standard ""YYYY-MM-DD"", ""YYYY-MM"" or ""YYYY""."
 geo_loc name (country),Required,Country of origin of the sample.,String,South Africa,Provide the country name from the picklist in the template
 geo_loc name (state/province/region),Required,State/province/region of origin of the sample.,String,Western Cape,Provide the state/province/region name from the GAZ geography ontology. Search for geography terms here: https://www.ebi.ac.uk/ols/ontologies/gaz
 organism,Required,Taxonomic name of the organism.,String,Severe acute respiratory coronavirus 2,Use Severe acute respiratory coronavirus 2.
-isolate,Required,Identifier of the specific isolate.,String,"1) INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020
-2) GISAID: hCoV-19/USA-CDPH-001/2020","Chose one of the following naming conventions for SARC-CoV-2 samples:
+isolate,Required,Identifier of the specific isolate.,String,INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020; GISAID: hCoV-19/USA-CDPH-001/2020,"Chose one of the following naming conventions for SARC-CoV-2 samples:
 1) ICTV compliant name for INSDC submission: ""SARS-CoV-2/host/location/isolate/date""
 2) GISAID naming convention: ""hCoV-19/location/isolate/date"""
 purpose of sampling,Recommended,The reason that the sample was collected.,String,Diagnostic testing,Select a value from the picklist in the template.
@@ -43,7 +41,7 @@ host (scientific name),Required,"The taxonomic, or scientific name of the host."
 host health state,Optional,Health status of the host at the time of sample collection.,String,Sick,"Select a value from the pick list. If unknown, put ""not provided""."
 host health status details,Optional,Further details pertaining to the health or disease status of the host at time of collection.,String,Hospitalized (ICU),"If known, select a descriptor from the pick list provided in the template."
 host disease,Required,The name of the disease experienced by the host.,String,COVID-19,"Select a value form the pick list. Provide ""COVID-19"" if the host tested positive for the disease. Put ""not collected"" if the information is unknown, or if the host (non-human) appears healthy. Note: ""COVID-19"" should still be provided if patient is asymptomatic."
-host age,Recommended,Age of host at the time of sampling.,String,79 or 40-49,"Provide age in years. Age-binning is also acceptable. If not available, put ""not provided""."
+host age,Recommended,Age of host at the time of sampling.,String,79; 40-49,"Provide age in years. Age-binning is also acceptable. If not available, put ""not provided""."
 host gender,Recommended,The gender of the host at the time of sample collection.,String,Male,"Select a value from the pick list. If not available, put ""not provided""."
 host origin geo loc (country),Optional,The country of residence of the host.,String,United Kingdom,Provide the country name from the picklist in the template
 host subject ID,Optional,A unique identifier by which each host can be referred to e.g. #131,String,BCxy123,"Should be a unique, user-defined identifier."
@@ -54,7 +52,7 @@ travel history,Optional,Travel outside the country in last six months.,String,"C
 exposure event,Optional,Event leading to exposure.,String,Mass gathering (convention),Select the exposure event from the pick list.
 library ID,Optional,The user-specified identifier for the library prepared for sequencing.,String,XYZ_123345,"The library name should be unique, and can be an autogenerated ID from your LIMS, or modification of the isolate ID."
 sequencing instrument,Recommended,The model of the sequencing instrument used.,String,MinIon,Select the sequencing instrument form the pick list.
-sequencing protocol name,Recommended,The name and version number of the sequencing protocol used.,String,"1D_DNA_MinION, ARTIC Network Protocol V3",Free text. Provide the name and version of the sequencing protocol. 
+sequencing protocol name,Recommended,The name and version number of the sequencing protocol used.,String,s,Free text. Provide the name and version of the sequencing protocol. 
 sequencing protocol source,Optional,The name of the organization/authors of the protocol.,String,ARTIC Network,Free text. Provide the name of the source of the protocol.
 sequencing kit number,Optional,The manufacturer's kit number.,String,AB456XYZ789,Alphanumeric value.
 amplicon pcr primers filename,Optional,The filename of the file containing amplicon PCR primer names and sequences.,String,ncov_primers_2020.txt,"Important for documenting methods and the user should consider including this information in their INSDC submission, particularly if primers were designed in-house and not by a public consortium/network."
