@@ -3,7 +3,7 @@
     "type": "object",
     "properties": {
         "bioproject_umbrella_accession": {
-            "description": "The INSDC umbrella accession number of the BioProject to which the BioSample belongs. ",
+            "description": "The INSDC umbrella accession number of the BioProject to which the BioSample belongs.",
             "type": "string",
             "pattern": "([a-zA-Z]{5})\\d*",
             "examples": [
@@ -11,7 +11,7 @@
             ]
         },
         "bioproject_accession": {
-            "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs. ",
+            "description": "The INSDC accession number of the BioProject(s) to which the BioSample belongs.",
             "type": "string",
             "pattern": "([a-zA-Z]{5})\\d*",
             "examples": [
@@ -51,11 +51,11 @@
             ]
         },
         "specimen_collector_sample_id": {
-            "description": "The user-defined name for the sample. ",
+            "description": "The user-defined name for the sample.",
             "type": "string",
             "examples": [
-                "INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020",
-                "GISAID: hCoV-19/USA-CDPH-001/2020"
+                "SARS-CoV-2/human/USA/CA-CDPH-001/2020",
+                "hCoV-19/USA-CDPH-001/2020"
             ]
         },
         "sample_collected_by": {
@@ -90,7 +90,7 @@
                 "Centers for Disease Control and Prevention"
             ]
         },
-        "bioproject_id": {
+        "sequence_submitter_contact_email": {
             "description": "The email address of the contact responsible for follow-up regarding the sequence.",
             "type": "string",
             "format": "email",
@@ -166,7 +166,7 @@
             ]
         },
         "anatomical_part": {
-            "description": "An anatomical part of an organism e.g. oropharynx. ",
+            "description": "An anatomical part of an organism e.g. oropharynx.",
             "type": "string",
             "examples": [
                 "Nasopharynx"
@@ -215,7 +215,7 @@
             ]
         },
         "specimen_processing": {
-            "description": "Any processing applied to the sample during or after receiving the sample. ",
+            "description": "Any processing applied to the sample during or after receiving the sample.",
             "type": "string",
             "examples": [
                 "Virus passage"
