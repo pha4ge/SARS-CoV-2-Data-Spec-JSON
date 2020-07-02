@@ -69,7 +69,7 @@ def parse_properties_table(path_to_properties_table):
             pattern = pattern_map[row['Value Type']]
             if pattern:
                 properties[property_key]['pattern'] = pattern
-            properties[property_key]['examples'] = row['Example'].split(';')  # examples separated by semicolon
+            properties[property_key]['examples'] = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
 
     return properties
 

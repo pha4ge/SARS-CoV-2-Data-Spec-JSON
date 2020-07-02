@@ -55,7 +55,7 @@
             "type": "string",
             "examples": [
                 "INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020",
-                " GISAID: hCoV-19/USA-CDPH-001/2020"
+                "GISAID: hCoV-19/USA-CDPH-001/2020"
             ]
         },
         "sample_collected_by": {
@@ -63,7 +63,7 @@
             "type": "string",
             "examples": [
                 "Public Health Agency of Canada",
-                " Centers for Disease Control and Prevention"
+                "Centers for Disease Control and Prevention"
             ]
         },
         "sample_collector_contact_email": {
@@ -72,7 +72,7 @@
             "format": "email",
             "examples": [
                 "johnnyblogs@lab.ca",
-                " RespLab@lab.ca"
+                "RespLab@lab.ca"
             ]
         },
         "sample_collector_contact_address": {
@@ -87,7 +87,7 @@
             "type": "string",
             "examples": [
                 "Public Health Agency of Canada",
-                " Centers for Disease Control and Prevention"
+                "Centers for Disease Control and Prevention"
             ]
         },
         "bioproject_id": {
@@ -96,7 +96,7 @@
             "format": "email",
             "examples": [
                 "johnnyblogs@lab.ca",
-                " RespLab@lab.ca"
+                "RespLab@lab.ca"
             ]
         },
         "sequence_submitter_contact_address": {
@@ -148,7 +148,7 @@
             "type": "string",
             "examples": [
                 "INSDC: SARS-CoV-2/human/USA/CA-CDPH-001/2020",
-                " GISAID: hCoV-19/USA-CDPH-001/2020"
+                "GISAID: hCoV-19/USA-CDPH-001/2020"
             ]
         },
         "purpose_of_sampling": {
@@ -289,7 +289,7 @@
             "type": "string",
             "examples": [
                 "79",
-                " 40-49"
+                "40-49"
             ]
         },
         "host_gender": {
@@ -340,8 +340,8 @@
             "type": "string",
             "examples": [
                 "Canada, Vancouver",
-                " USA, Seattle",
-                " Italy, Milan"
+                "USA, Seattle",
+                "Italy, Milan"
             ]
         },
         "exposure_event": {
