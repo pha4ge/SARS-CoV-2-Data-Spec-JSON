@@ -41,7 +41,7 @@ host (scientific name),Required,"The taxonomic, or scientific name of the host."
 host health state,Optional,Health status of the host at the time of sample collection.,String,Sick,"Select a value from the pick list. If unknown, put ""not provided""."
 host health status details,Optional,Further details pertaining to the health or disease status of the host at time of collection.,String,Hospitalized (ICU),"If known, select a descriptor from the pick list provided in the template."
 host disease,Required,The name of the disease experienced by the host.,String,COVID-19,"Select a value form the pick list. Provide ""COVID-19"" if the host tested positive for the disease. Put ""not collected"" if the information is unknown, or if the host (non-human) appears healthy. Note: ""COVID-19"" should still be provided if patient is asymptomatic."
-host age,Recommended,Age of host at the time of sampling.,String,79; 40-49,"Provide age in years. Age-binning is also acceptable. If not available, put ""not provided""."
+host age,Recommended,Age of host at the time of sampling.,Integer_or_Range,79; 40-49,"Provide age in years. Age-binning is also acceptable. If not available, put ""not provided""."
 host gender,Recommended,The gender of the host at the time of sample collection.,String,Male,"Select a value from the pick list. If not available, put ""not provided""."
 host origin geo loc (country),Optional,The country of residence of the host.,String,United Kingdom,Provide the country name from the picklist in the template
 host subject ID,Optional,A unique identifier by which each host can be referred to e.g. #131,String,BCxy123,"Should be a unique, user-defined identifier."
