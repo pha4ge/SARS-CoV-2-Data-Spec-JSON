@@ -25,17 +25,15 @@ def parse_properties_table(path_to_properties_table):
         "SRA_ID": "string",
         "Genbank_ID": "string",
         "GISAID_ID": "string",
-        "Integer_or_Range": {
-            "anyOf": [
-                {
-                    "type": "integer",
-                },
-                {
-                    "type": "string",
-                    "pattern": "\\d+-\\d+",
-                }
-            ]
-        },
+        "Integer_or_Range": [
+            {
+                "type": "integer",
+            },
+            {
+                "type": "string",
+                "pattern": "\\d+-\\d+",
+            }
+        ],
     }
 
     format_map = {
@@ -91,6 +89,7 @@ def parse_properties_table(path_to_properties_table):
 
             # Special case for 'host_age'
             if row['Value Type'] == 'Integer_or_Range':
+                properties[property_key]['anyOf'] = properties[property_key].pop('type', None)
                 for i in range(len(examples)):
                     if '-' not in examples[i]:
                         examples[i] = int(examples[i])
