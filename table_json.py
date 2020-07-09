@@ -69,7 +69,14 @@ def parse_properties_table(path_to_properties_table):
             pattern = pattern_map[row['Value Type']]
             if pattern:
                 properties[property_key]['pattern'] = pattern
-            properties[property_key]['examples'] = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
+            examples = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
+            for i in range(len(examples)):
+                if properties[property_key]['type'] == 'integer':
+                     examples[i] = int(examples[i])
+                elif properties[property_key]['type'] == 'number':
+                    examples[i] = float(examples[i])
+            properties[property_key]['examples'] = examples
+            
 
     return properties
 
