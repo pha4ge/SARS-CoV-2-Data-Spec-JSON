@@ -286,9 +286,19 @@
         },
         "host_age": {
             "description": "Age of host at the time of sampling.",
-            "type": "string",
+            "type": {
+                "anyOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "string",
+                        "pattern": "\\d+-\\d+"
+                    }
+                ]
+            },
             "examples": [
-                "79",
+                79,
                 "40-49"
             ]
         },

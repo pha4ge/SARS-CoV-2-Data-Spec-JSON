@@ -24,7 +24,18 @@ def parse_properties_table(path_to_properties_table):
         "Biosample_ID": "string",
         "SRA_ID": "string",
         "Genbank_ID": "string",
-        "GISAID_ID": "string"
+        "GISAID_ID": "string",
+        "Integer_or_Range": {
+            "anyOf": [
+                {
+                    "type": "integer",
+                },
+                {
+                    "type": "string",
+                    "pattern": "\\d+-\\d+",
+                }
+            ]
+        },
     }
 
     format_map = {
@@ -37,7 +48,8 @@ def parse_properties_table(path_to_properties_table):
         "Biosample_ID": None,
         "SRA_ID": None,
         "Genbank_ID": None,
-        "GISAID_ID": None
+        "GISAID_ID": None,
+        "Integer_or_Range": None,
     }
 
     pattern_map = {
@@ -50,7 +62,8 @@ def parse_properties_table(path_to_properties_table):
         "Biosample_ID": "([a-zA-Z]{5})\d*",
         "SRA_ID": "([a-zA-Z]{3})\d*",
         "Genbank_ID": "([a-zA-Z]{2})\d*.\d{1}",
-        "GISAID_ID": "([a-zA-Z]{3}_)+\d*"
+        "GISAID_ID": "([a-zA-Z]{3}_)+\d*",
+        "Integer_or_Range": None,
     }
 
     properties = {}
@@ -75,8 +88,15 @@ def parse_properties_table(path_to_properties_table):
                      examples[i] = int(examples[i])
                 elif properties[property_key]['type'] == 'number':
                     examples[i] = float(examples[i])
-            properties[property_key]['examples'] = examples
+
+            # Special case for 'host_age'
+            if row['Value Type'] == 'Integer_or_Range':
+                for i in range(len(examples)):
+                    if '-' not in examples[i]:
+                        examples[i] = int(examples[i])
             
+            properties[property_key]['examples'] = examples
+
 
     return properties
 
