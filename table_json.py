@@ -56,11 +56,11 @@ def parse_properties_table(path_to_properties_table):
         "Int": None,
         "Float": None,
         "Email": None,
-        "Bioproject_ID": "([a-zA-Z]{5})\d*",
+        "Bioproject_ID": "^PRJ(N|E|D)([a-zA-Z]?)[0-9]+*",
         "Biosample_ID": "^SAM(D|N|E([AG]?))[0-9]+",
-        "SRA_ID": "([a-zA-Z]{3})\d*",
-        "Genbank_ID": "([a-zA-Z]{2})\d*.\d{1}",
-        "GISAID_ID": "([a-zA-Z]{3}_)+\d*",
+        "SRA_ID": "^(SRR|ERR)[0-9]+",
+        "Genbank_ID": "^([a-zA-Z]{2})\d*.\d{1}",
+        "GISAID_ID": "^EPI_ISL_\d*",
         "Integer_or_Range": None,
     }
 
