@@ -69,6 +69,7 @@ def parse_properties_table(path_to_properties_table):
     with open(path_to_properties_table) as f:
         reader = csv.DictReader(f)
         for row in reader:
+            print(row)
             property_key = interface_label_to_property_key(row['Interface Label'])
             properties[property_key] = {}
             properties[property_key]['description'] = row['Definition']
@@ -121,10 +122,12 @@ def main(args):
         "required": [],
     }
     
-    schema['properties'] = parse_properties_table(args.input)
-    schema['required'] = get_required_fields(args.input)
+    schema["properties"] = parse_properties_table(args.input)
+    schema["required"] = get_required_fields(args.input)
     
-    print(json.dumps(schema))
+    #print(json.dumps(schema))
+    with open("schema.json", "w") as fh:
+        fh.write(json.dumps(schema))
 
 
 if __name__ == '__main__':
