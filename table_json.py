@@ -4,7 +4,11 @@ import argparse
 import csv
 import json
 import re
+from ast import literal_eval
 
+FIELDNAMES = ['Interface Label','Required/Optional','Definition','Value Type','Example','Guidance','Values']
+SEPARATOR = ';'
+QUOTE = '"'
 
 def interface_label_to_property_key(interface_label):
     property_key = re.sub(r'[^\w {}]', '_', interface_label).replace(' ', '_').replace('__', '_').lower()
@@ -25,6 +29,10 @@ def parse_properties_table(path_to_properties_table):
         "SRA_ID": "string",
         "Genbank_ID": "string",
         "GISAID_ID": "string",
+        "Enums":{
+                "type": "string",
+                "enum": "",
+            },
         "Integer_or_Range": [
             {
                 "type": "integer",
@@ -48,6 +56,7 @@ def parse_properties_table(path_to_properties_table):
         "Genbank_ID": None,
         "GISAID_ID": None,
         "Integer_or_Range": None,
+        'Enums': None
     }
 
     pattern_map = {
@@ -62,18 +71,25 @@ def parse_properties_table(path_to_properties_table):
         "Genbank_ID": "^([a-zA-Z]{2})\d*.\d{1}",
         "GISAID_ID": "^EPI_ISL_\d*",
         "Integer_or_Range": None,
+        "Enums": None
     }
 
     properties = {}
 
     with open(path_to_properties_table) as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f,
+                                delimiter=SEPARATOR,
+                                quotechar=QUOTE)
         for row in reader:
             print(row)
             property_key = interface_label_to_property_key(row['Interface Label'])
             properties[property_key] = {}
             properties[property_key]['description'] = row['Definition']
-            type = datatype_map[row['Value Type']]
+            if row['Value Type'] == "Enums":
+                type = datatype_map[row['Value Type']]
+                type['enum'] = literal_eval(row['Values'])
+            else:
+                type = datatype_map[row['Value Type']]
             properties[property_key]['type'] = type
             format = format_map[row['Value Type']]
             if format:
@@ -84,7 +100,7 @@ def parse_properties_table(path_to_properties_table):
             examples = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
             for i in range(len(examples)):
                 if properties[property_key]['type'] == 'integer':
-                     examples[i] = int(examples[i])
+                    examples[i] = int(examples[i])
                 elif properties[property_key]['type'] == 'number':
                     examples[i] = float(examples[i])
 
@@ -102,15 +118,15 @@ def parse_properties_table(path_to_properties_table):
 
 
 def get_required_fields(path_to_properties_table):
-    required_fields = []
+    required_fields = set()
     with open(path_to_properties_table) as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter=SEPARATOR,quotechar=QUOTE)
         for row in reader:
             property_key = interface_label_to_property_key(row['Interface Label'])
             if row['Required/Optional'] == 'Required':
-                required_fields.append(property_key)
+                required_fields.add(property_key)
 
-    return required_fields
+    return list(required_fields)
 
 
 def main(args):
