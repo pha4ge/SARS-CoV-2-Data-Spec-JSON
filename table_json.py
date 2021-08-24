@@ -10,6 +10,11 @@ FIELDNAMES = ['Interface Label','Required/Optional','Definition','Value Type','E
 SEPARATOR = ';'
 QUOTE = '"'
 
+def string_list_to_list(string):
+    to_list = literal_eval(string)
+    to_list = [n.strip() for n in to_list]
+    return to_list
+
 def interface_label_to_property_key(interface_label):
     property_key = re.sub(r'[^\w {}]', '_', interface_label).replace(' ', '_').replace('__', '_').lower()
     property_key = re.sub(r'_$', '', property_key)
@@ -85,18 +90,17 @@ def parse_properties_table(path_to_properties_table):
             property_key = interface_label_to_property_key(row['Interface Label'])
             properties[property_key] = {}
             properties[property_key]['description'] = row['Definition']
-            if row['Value Type'] == "Enums":
-                type = datatype_map[row['Value Type']]
-                type['enum'] = literal_eval(row['Values'])
-            else:
-                type = datatype_map[row['Value Type']]
+            type = datatype_map[row['Value Type']]
             properties[property_key]['type'] = type
+            print('3', properties[property_key]['type'])
             format = format_map[row['Value Type']]
             if format:
                 properties[property_key]['format'] = format
+            print('4', properties[property_key]['type'])
             pattern = pattern_map[row['Value Type']]
             if pattern:
                 properties[property_key]['pattern'] = pattern
+            print('5', properties[property_key]['type'])
             examples = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
             for i in range(len(examples)):
                 if properties[property_key]['type'] == 'integer':
@@ -110,6 +114,12 @@ def parse_properties_table(path_to_properties_table):
                 for i in range(len(examples)):
                     if '-' not in examples[i]:
                         examples[i] = int(examples[i])
+            
+            # Special case: enumns
+            if row['Value Type'] == "Enums":
+                type = datatype_map[row['Value Type']]
+                properties[property_key]['type'] = "string"
+                properties[property_key]['Enums'] = string_list_to_list(row['Values'])
             
             properties[property_key]['examples'] = examples
 
