@@ -92,15 +92,12 @@ def parse_properties_table(path_to_properties_table):
             properties[property_key]['description'] = row['Definition']
             type = datatype_map[row['Value Type']]
             properties[property_key]['type'] = type
-            print('3', properties[property_key]['type'])
             format = format_map[row['Value Type']]
             if format:
                 properties[property_key]['format'] = format
-            print('4', properties[property_key]['type'])
             pattern = pattern_map[row['Value Type']]
             if pattern:
                 properties[property_key]['pattern'] = pattern
-            print('5', properties[property_key]['type'])
             examples = list(map(str.strip, row['Example'].split(';')))  # examples separated by semicolon
             for i in range(len(examples)):
                 if properties[property_key]['type'] == 'integer':
