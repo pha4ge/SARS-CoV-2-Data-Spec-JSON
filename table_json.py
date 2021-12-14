@@ -6,7 +6,7 @@ import json
 import re
 from ast import literal_eval
 
-FIELDNAMES = ['Interface Label','Required/Optional','Definition','Value Type','Example','Guidance','Values']
+FIELDNAMES = ['Interface Label','Required/Optional','Definition','Ontology','Value Type','Example','Guidance','Values']
 SEPARATOR = ';'
 QUOTE = '"'
 
@@ -90,6 +90,7 @@ def parse_properties_table(path_to_properties_table):
             property_key = interface_label_to_property_key(row['Interface Label'])
             properties[property_key] = {}
             properties[property_key]['description'] = row['Definition']
+            properties[property_key]['ontology'] = row['Ontology']
             type = datatype_map[row['Value Type']]
             properties[property_key]['type'] = type
             format = format_map[row['Value Type']]
@@ -149,7 +150,7 @@ def main(args):
     schema["required"] = get_required_fields(args.input)
     
     #print(json.dumps(schema))
-    with open("schema.json", "w") as fh:
+    with open("PHA4GE_SARS-CoV-2_Contextual_Data_Schema.json", "w") as fh:
         fh.write(json.dumps(schema))
 
 
